@@ -1,42 +1,38 @@
 ---
 name: consensus-support-reply-guard
-description: Open-source Consensus.Tools skill for governed AI decisions with board-native artifacts, strict JSON contracts, and deterministic policy behavior.
+description: Risk-aware support response governance with persona-weighted consensus. Detects legal/sensitive/confidentiality issues, applies hard-block policy checks, and writes auditable decision artifacts for customer-facing automation.
 homepage: https://github.com/kaicianflone/consensus-support-reply-guard
 source: https://github.com/kaicianflone/consensus-support-reply-guard
 ---
 
 # consensus-support-reply-guard
 
-This skill is part of the Consensus.Tools ecosystem and is designed for production-grade agent governance.
+`consensus-support-reply-guard` is a customer-trust guard for support workflows.
 
-## Why this skill exists
+## What this skill does
 
-Most agent systems fail because a single model decides and executes without explicit arbitration. This skill addresses that by applying consensus-style controls:
+- evaluates support drafts before sending
+- detects high-risk claim patterns
+- blocks or rewrites responses when policy violations appear
+- updates persona reputations based on final decision alignment
+- preserves decision history in board artifacts
 
-- structured multi-perspective evaluation
-- hard-block safety checks
-- deterministic aggregation and replayable outputs
-- board-native artifact persistence for auditing
+## Why this matters
 
-## Core capabilities
+Support replies are high-frequency and brand-critical. This skill prevents overconfident legal/PII mistakes at scale.
 
-- strict input/output JSON contracts for pipeline integration
-- deterministic policy evaluation where possible
-- idempotent retry behavior to avoid duplicate side effects
-- versioned artifacts written to board ledger history
+## Ecosystem role
 
-## Stack assumptions
+Composes with persona generation + consensus board state so support quality improves through persistent decision memory.
 
-- built to compose with consensus-interact workflows
-- uses consensus-tools board/job/submission primitives
-- designed to integrate with persona-generator persona_set artifacts
+## Ideal scenarios
+
+- automated ticket triage replies
+- L1/L2 AI response review gates
+- regulated or enterprise support channels
 
 ## Quick start
 
-Use the repo examples and run script to execute locally.
-
-## Expected outcomes
-
-- a decision/result artifact persisted to board state
-- optional updated persona_set artifact for adaptive governance
-- machine-parseable output suitable for automation systems
+```bash
+node --import tsx run.js --input ./examples/input.json
+```
