@@ -39,3 +39,7 @@ Support quality becomes a governed loop: detect risk, rewrite safely, learn from
 - **State substrate**: consensus-tools artifacts
 - **Primary output**: support decision + updated persona set
 - **Primary benefit**: reduced customer-facing risk and improved consistency
+
+## Tool-call boundary
+
+To avoid orchestration drift, this skill routes board operations through the consensus-interact contract surface (directly or via guard-core wrappers). This preserves a single governance interaction model while allowing domain-specific decision logic.
