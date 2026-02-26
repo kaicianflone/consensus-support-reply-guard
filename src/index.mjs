@@ -33,3 +33,7 @@ export async function handler(input, opts={}) {
     return response;
   } catch(e){ return err(board_id||'','SUPPORT_REPLY_GUARD_FAILED',e.message||'unknown'); }
 }
+
+export async function invoke(input, opts = {}) {
+  return handler(input, opts);
+}
