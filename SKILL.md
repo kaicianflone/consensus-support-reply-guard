@@ -4,7 +4,7 @@ description: Risk-aware support response governance with persona-weighted consen
 homepage: https://github.com/kaicianflone/consensus-support-reply-guard
 source: https://github.com/kaicianflone/consensus-support-reply-guard
 metadata:
-  {"openclaw": {"requires": {"bins": ["node", "tsx"]}}}
+  {"openclaw": {"requires": {"bins": ["node", "tsx"], "env": ["OPENAI_API_KEY"]}}}
 ---
 
 # consensus-support-reply-guard
@@ -35,6 +35,13 @@ Composes with persona generation + consensus board state so support quality impr
 
 
 ## Runtime, credentials, and network behavior
+
+## Credential declaration (registry + runtime)
+
+- declared env: `OPENAI_API_KEY`
+- requirement is **conditional**: only needed when persona generation is configured to use an OpenAI-backed LLM provider
+- no API key is required when you pass an existing `persona_set_id` and skip generation
+
 
 - runtime binaries: `node`, `tsx`
 - network calls: none in the guard decision path itself
