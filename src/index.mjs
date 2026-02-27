@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 import { handler as personaGen } from '../../consensus-persona-generator/src/index.mjs';
-import { rejectUnknown, getLatest, getPersonaSet, getDecisionByKey, writeArtifact, detectHardBlockFlags, aggregateVotes, updateReputations, makeIdempotencyKey } from 'consensus-guard-core/src/index.mjs';
+import { rejectUnknown, getLatest, getPersonaSet, getDecisionByKey, writeArtifact, detectHardBlockFlags, aggregateVotes, updateReputations, makeIdempotencyKey, resolveStatePath } from 'consensus-guard-core/src/index.mjs';
 
 const TOP = new Set(['board_id','reply_draft','constraints','persona_set_id','mode','external_votes']);
 const DRAFT = new Set(['ticket_id','customer_tier','subject','body']);
@@ -15,7 +15,7 @@ function makeVotes(ps,draft,constraints={}){
 }
 
 export async function handler(input, opts={}) {
-  const board_id=input?.board_id; const statePath=opts.statePath||process.env.CONSENSUS_STATE_FILE||'./.consensus/board-state.json';
+  const board_id=input?.board_id; const statePath=resolveStatePath(opts);
   try {
     const v=validate(input); if(v) return err(board_id||'','INVALID_INPUT',v);
     const externalMode = input.mode === 'external_agent';
