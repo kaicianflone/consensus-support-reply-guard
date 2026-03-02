@@ -54,7 +54,6 @@ Composes with consensus board state using explicit vote inputs and deterministic
 
 - runtime binaries: `node`, `tsx`
 - network calls: none in the guard decision path itself
-- credentials: none required
 - filesystem writes: board/state artifacts under the configured consensus state path
 
 ## Dependency trust model
